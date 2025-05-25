@@ -7,6 +7,7 @@ import json
 
 class CybersecurityAgent:
     def __init__(self, openai_api_key: str, model: str = "gpt-4"):
+        """Initialize the cybersecurity agent"""
         self.llm = ChatOpenAI(
             api_key=openai_api_key,
             model=model,
