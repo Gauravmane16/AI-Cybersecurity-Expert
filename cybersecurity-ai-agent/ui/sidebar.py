@@ -12,12 +12,27 @@ def render_sidebar():
     api_key = st.sidebar.text_input(
         "OpenAI API Key",
         type="password",
-        help="Enter your OpenAI API key to use the AI agent"
+        help=(
+            "Enter your OpenAI API key to use the AI agent.\n\n"
+            "To get an API key:\n"
+            "1. Go to https://platform.openai.com/account/api-keys\n"
+            "2. Sign up or log in to your OpenAI account\n"
+            "3. Click on '+ Create new secret key'\n"
+            "4. Copy the generated key (you won't be able to see it again)\n"
+            "5. Paste it here\n\n"
+            "Note: Keep your API key secure and never share it publicly."
+        )
     )
     
     if api_key and not validate_api_key(api_key):
         st.sidebar.error("Invalid API key format")
-    
+        
+    # Add a link to OpenAI platform
+    st.sidebar.markdown(
+        "[Get OpenAI API Key →](https://platform.openai.com/account/api-keys)",
+        unsafe_allow_html=True
+    )
+
     st.sidebar.markdown("---")
     
     # Security Domain Selection
