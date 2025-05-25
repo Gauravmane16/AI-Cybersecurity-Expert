@@ -1,0 +1,118 @@
+{
+    "vulnerabilities": {
+        "sql_injection": {
+            "description": "SQL injection attacks occur when untrusted data is sent to an interpreter as part of a command or query",
+            "severity": "Critical",
+            "risk_score": 9.8,
+            "mitigation": [
+                "Use parameterized queries or prepared statements",
+                "Implement strict input validation and sanitization",
+                "Apply least privilege database access principles",
+                "Deploy Web Application Firewall (WAF)",
+                "Regular security testing and code reviews"
+            ],
+            "tools": [
+                {
+                    "name": "SQLMap",
+                    "type": "Testing",
+                    "url": "https://github.com/sqlmapproject/sqlmap"
+                },
+                {
+                    "name": "Burp Suite",
+                    "type": "Testing/Prevention",
+                    "url": "https://portswigger.net/burp"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "type": "Testing/Prevention",
+                    "url": "https://www.zaproxy.org/"
+                }
+            ],
+            "references": [
+                "OWASP Top 10:2021 A03",
+                "CWE-89"
+            ]
+        },
+        "xss": {
+            "description": "Cross-Site Scripting allows attackers to inject malicious scripts into web pages viewed by other users",
+            "severity": "High",
+            "risk_score": 8.2,
+            "mitigation": [
+                "Implement context-aware output encoding",
+                "Configure strong Content Security Policy (CSP)",
+                "Validate and sanitize all user inputs",
+                "Use modern secure frameworks with built-in XSS protection",
+                "Apply HttpOnly and Secure cookie flags"
+            ],
+            "tools": [
+                {
+                    "name": "XSStrike",
+                    "type": "Testing",
+                    "url": "https://github.com/s0md3v/XSStrike"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "type": "Testing/Prevention",
+                    "url": "https://www.zaproxy.org/"
+                }
+            ],
+            "references": [
+                "OWASP Top 10:2021 A03",
+                "CWE-79"
+            ]
+        },
+        "csrf": {
+            "description": "Cross-Site Request Forgery tricks authenticated users into performing unintended actions",
+            "severity": "Medium",
+            "risk_score": 6.8,
+            "mitigation": [
+                "Implement anti-CSRF tokens",
+                "Use SameSite cookie attribute (Strict/Lax)",
+                "Validate Origin and Referrer headers",
+                "Implement double-submit cookie pattern",
+                "Require re-authentication for sensitive actions"
+            ],
+            "tools": [
+                {
+                    "name": "OWASP CSRFGuard",
+                    "type": "Prevention",
+                    "url": "https://owasp.org/www-project-csrfguard/"
+                }
+            ],
+            "references": [
+                "OWASP Top 10:2021 A05",
+                "CWE-352"
+            ]
+        }
+    },
+    "compliance_frameworks": {
+        "gdpr": {
+            "name": "General Data Protection Regulation",
+            "region": "European Union",
+            "description": "Comprehensive data protection and privacy regulation for EU residents",
+            "key_requirements": [
+                "Data protection by design and default",
+                "Lawful basis for processing",
+                "Data subject rights management",
+                "72-hour breach notification",
+                "Data Protection Impact Assessments (DPIA)"
+            ],
+            "penalties": "Up to €20 million or 4% of global revenue",
+            "effective_date": "2018-05-25"
+        },
+        "hipaa": {
+            "name": "Health Insurance Portability and Accountability Act",
+            "region": "United States",
+            "description": "Federal law protecting sensitive patient health information",
+            "key_requirements": [
+                "Administrative safeguards and policies",
+                "Physical security controls",
+                "Technical security measures",
+                "Regular risk assessments",
+                "Business Associate Agreements"
+            ],
+            "penalties": "Up to $1.5 million per violation per year",
+            "effective_date": "1996-08-21"
+        }
+    }
+}
